@@ -1,0 +1,54 @@
+.reg{
+    height: calc(100vh - 50px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(
+        rgba(0,0,0,0.5),
+        rgba(0,0,0,0.5)),
+    url("https://sellertools.s3.amazonaws.com/uploads/blog/2016/07/11/stockvault-online-shopping-laptop-to-shopping-cart185859-1.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.regForm{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid;
+    background-color: rgba(8, 8, 8, 0.481);
+    padding: 20px;
+    box-shadow: 3px 3px 8px black;
+}
+.regForm > label{
+    margin: 10px 0;
+    color: bisque;
+}
+.regInput{
+    padding: 10px;
+    background-color: white;
+    border: none;
+    outline: none;
+}
+.regBtn{
+    margin-top: 20px;
+    cursor: pointer;
+    background-color: aqua;
+    border: none;
+    color: rgb(45, 44, 44);
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: bolder;
+}
+.registerBtn{
+    position: absolute;
+    top: 80px;
+    right: 60px;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    background-color: orchid;
+    border: none;
+    color: rgb(50, 49, 49);
+    font-weight: bold;
+}
