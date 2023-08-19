@@ -10,7 +10,6 @@ export const cartSlice = createSlice({
     totalQuantity: 0,
   },
   reducers: {
-
     update(state, action) {
       const itemExist = state.cartItems.findIndex(
         (item) => item.p.id === action.payload.p.id
@@ -33,40 +32,39 @@ export const cartSlice = createSlice({
         (cartItem) => cartItem.p.id !== action.payload.p.id
       );
       state.cartItems = leftItems;
-      
+
       toast.success("Removed Product from Cart :)", { position: "top-right" });
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
 
-    lessQty(state, action){
+    lessQty(state, action) {
       const itemIndex = state.cartItems.findIndex(
         (cartItem) => cartItem.p.id === action.payload.p.id
       );
 
       if (state.cartItems[itemIndex].itemQuantity > 1) {
-        state.cartItems[itemIndex].itemQuantity -= 1
+        state.cartItems[itemIndex].itemQuantity -= 1;
 
-        toast.info("Decreased Product Quantity.", {position: "top-right"})
-      }
-      else if (state.cartItems[itemIndex].itemQuantity === 1){
+        toast.info("Decreased Product Quantity.", { position: "top-right" });
+      } else if (state.cartItems[itemIndex].itemQuantity === 1) {
         const leftItems = state.cartItems.filter(
           (cartItem) => cartItem.p.id !== action.payload.p.id
         );
         state.cartItems = leftItems;
-  
+
         toast.error("Removed Product from Cart :)", { position: "top-right" });
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
 
-    clearCart(state, action){
+    clearCart(state, action) {
       state.cartItems = [];
 
-      toast.error("Clear all items from your Cart:(")
+      toast.error("Clear all items from your Cart:(");
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
-    }
+    },
   },
 });
 
-export const { update,remove,lessQty,clearCart } = cartSlice.actions;
+export const { update, remove, lessQty, clearCart } = cartSlice.actions;
 export default cartSlice.reducer;

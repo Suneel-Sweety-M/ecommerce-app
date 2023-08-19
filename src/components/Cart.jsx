@@ -1,5 +1,5 @@
 import React from "react";
-import "./cart.css";
+import "../App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { clearCart, lessQty, remove, update } from "./redux/cartSlice";
@@ -26,15 +26,15 @@ const Cart = () => {
 
   return (
     <div className="cart">
+      <br />
       <Link to="/" className="backBtn">
         <i className="fa-solid fa-arrow-left"></i>
-        Go to Shopping
       </Link>
 
       {cartItems.length > 0 ? (
         <>
           <div className="cart-headder">
-            <h3 className="cartTitle">Your Cart </h3>
+            <h1 className="cartTitle">Your Cart </h1>
             <hr />
             <br />
           </div>
@@ -84,6 +84,7 @@ const Cart = () => {
           </div>
 
           <hr />
+          <br />
 
           <div className="cart-bottom">
             <p className="clearBtn" onClick={clearItems}>

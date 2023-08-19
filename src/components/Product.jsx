@@ -9,9 +9,9 @@ const Product = () => {
 
   const dispatch = useDispatch();
 
-    const handleATC =(p)=>{
-      dispatch(update({p}));
-    }
+  const handleATC = (p) => {
+    dispatch(update({ p }));
+  };
 
   useEffect(() => {
     const getProduct = async () => {
@@ -24,40 +24,35 @@ const Product = () => {
   const ShowProduct = () => {
     return (
       <>
-      <Link to="/" className="backBtn">
-        <i className="fa-solid fa-arrow-left"></i>
-         Go to Shopping
-      </Link>
+        <br />
+        <Link to="/" className="backBtn">
+          <i className="fa-solid fa-arrow-left"></i>
+        </Link>
 
-        <div className="col-md-6" key={product.id}>
-          <img
-            src={product.image}
-            alt={product.title}
-            height="400px"
-            width="400px"
-          />
-        </div>
-        <div className="col-md-6">
-          <h4 className="text-uppercase text-black-50">{product.category}</h4>
-          <h2 className="display-5">{product.title}</h2>
-          <p className="lead fw-bolder">
-            Rating {product.rating && product.rating.rate}
-            <i className="fa fa-star"></i>
-          </p>
-          <h3 className="display-6 fw-bold my-4">${product.price}</h3>
-          <p className="lead">{product.description}</p>
-          <button
-            className="btn btn-outline-dark px-4 py-2"
-            onClick={()=>handleATC(product)}
-          >
-            Add to Cart
-          </button>
-          <NavLink
-            to="/cart"
-            className="btn btn-dark ms-2 px-4 py-2"
-          >
-            Go to Cart
-          </NavLink>
+        <div className="product-view">
+          <div className="product-img" key={product.id}>
+            <img
+              src={product.image}
+              alt={product.title}
+              height="400px"
+              width="400px"
+            />
+          </div>
+          <div className="product-details">
+            <h4 className="product-cate">{product.category}</h4>
+            <h2 className="product-title">{product.title}</h2>
+            <p className="product-rating">
+              Rating : {product.rating && product.rating.rate} / 5
+            </p>
+            <p className="product-price">Price : ${product.price}</p>
+            <p className="product-desc">{product.description}</p>
+            <button className="btn add-btn" onClick={() => handleATC(product)}>
+              Add to Cart
+            </button>
+            <NavLink to="/cart" className="btn cart-btn">
+              Go to Cart
+            </NavLink>
+          </div>
         </div>
       </>
     );
